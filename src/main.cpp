@@ -52,8 +52,6 @@ int cicle(Employee_info e_i)
 
 int main()
 {
-    std::unique_ptr<Employee_info> employeeInfo(new Employee_info);
+    auto employeeInfo = std::make_unique<Employee_info>();
     cicle(*employeeInfo);
-
-    return 0;
 }
