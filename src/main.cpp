@@ -15,7 +15,7 @@
 #include <cstring>
 #include <iostream>
 
-int cicle(Employee_info e_i)
+int cycle(Employee_info e_i)
 {
     char operation = {1};
 
@@ -53,5 +53,5 @@ int cicle(Employee_info e_i)
 int main()
 {
     auto employeeInfo = std::make_unique<Employee_info>();
-    cicle(*employeeInfo);
+    cycle(*employeeInfo);
 }
