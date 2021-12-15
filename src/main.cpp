@@ -10,13 +10,14 @@
    address, phone, email.
  */
 
+#include "memory"
 #include "source.h"
+#include <cstring>
 #include <iostream>
-#include <memory>
 
-void cycle(Employee_info& employee)
+int cicle(Employee_info e_i)
 {
-    char operation{1};
+    char operation = {1};
 
     std::cout << "Enter operation(1. add new employee 2. display info 3. write info on file 4. "
                  "Display info from file 0. for exit ): ";
@@ -25,16 +26,16 @@ void cycle(Employee_info& employee)
     while (operation != '0') {
         switch (operation) {
         case '1':
-            employee.choise_operation();
+            e_i.choise_operation();
             break;
         case '2':
-            employee.display_info();
+            e_i.display_info();
             break;
         case '3':
-            employee.writing_file();
+            e_i.writing_file();
             break;
         case '4':
-            employee.display_info_from_file();
+            e_i.display_info_from_file();
             break;
         default:
             std::cout << "Wrong operation!" << std::endl;
@@ -45,10 +46,14 @@ void cycle(Employee_info& employee)
         std::cin >> operation;
     }
     std::cout << "Good day! " << std::endl;
+
+    return 0;
 }
 
 int main()
 {
-    auto employeeInfo = std::make_unique<Employee_info>();
-    cycle(*employeeInfo);
+    std::unique_ptr<Employee_info> employeeInfo(new Employee_info);
+    cicle(*employeeInfo);
+
+    return 0;
 }
