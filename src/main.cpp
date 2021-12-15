@@ -10,14 +10,13 @@
    address, phone, email.
  */
 
-#include "memory"
 #include "source.h"
-#include <cstring>
 #include <iostream>
+#include <memory>
 
-int cycle(Employee_info e_i)
+void cycle(Employee_info& employee)
 {
-    char operation = {1};
+    char operation{1};
 
     std::cout << "Enter operation(1. add new employee 2. display info 3. write info on file 4. "
                  "Display info from file 0. for exit ): ";
@@ -26,16 +25,16 @@ int cycle(Employee_info e_i)
     while (operation != '0') {
         switch (operation) {
         case '1':
-            e_i.choise_operation();
+            employee.choise_operation();
             break;
         case '2':
-            e_i.display_info();
+            employee.display_info();
             break;
         case '3':
-            e_i.writing_file();
+            employee.writing_file();
             break;
         case '4':
-            e_i.display_info_from_file();
+            employee.display_info_from_file();
             break;
         default:
             std::cout << "Wrong operation!" << std::endl;
@@ -46,8 +45,6 @@ int cycle(Employee_info e_i)
         std::cin >> operation;
     }
     std::cout << "Good day! " << std::endl;
-
-    return 0;
 }
 
 int main()
