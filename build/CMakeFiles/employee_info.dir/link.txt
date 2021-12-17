@@ -1,1 +1,0 @@
-/usr/bin/c++ CMakeFiles/employee_info.dir/src/main.cpp.o CMakeFiles/employee_info.dir/src/source.cpp.o -o employee_info 
