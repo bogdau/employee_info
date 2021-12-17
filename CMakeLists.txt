@@ -5,5 +5,5 @@ set(CMAKE_CXX_STANDARD 20)
 
 add_executable(employee_info
         src/main.cpp
-        src/source.cpp
-        src/source.h)
+        src/Employee.cpp
+        src/Employee.h)
