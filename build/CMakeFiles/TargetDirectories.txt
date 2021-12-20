@@ -1,3 +1,0 @@
-/home/bo/employee_info/build/CMakeFiles/employee_info.dir
-/home/bo/employee_info/build/CMakeFiles/edit_cache.dir
-/home/bo/employee_info/build/CMakeFiles/rebuild_cache.dir
