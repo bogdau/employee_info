@@ -2,7 +2,7 @@
 #include <iostream>
 #include <memory>
 
-void cycle(Employee &employee) {
+void cycle(Program_runner &employee) {
     char operation{1};
 
     std::cout << "Enter operation(1. add new employee 2. display info 3. write info on file 4. "
@@ -38,6 +38,6 @@ void cycle(Employee &employee) {
 }
 
 int main() {
-    auto employeeInfo = std::make_unique<Employee>();
+    auto employeeInfo = std::make_unique<Program_runner>();
     cycle(*employeeInfo);
 }

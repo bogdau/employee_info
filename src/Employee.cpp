@@ -1,15 +1,8 @@
 #include "Employee.h"
 #include "fstream"
-#include <cstring>
-#include <iostream>
+#include "cstring"
+#include "iostream"
 
-void write_to_file() {
-    std::ofstream myfile;
-
-    myfile.open("employee_info.txt");
-    myfile << "Writing this to a file.\n";
-    myfile.close();
-}
 
 Employee::Employee() {
     name = "Unknown";
@@ -20,7 +13,7 @@ Employee::Employee() {
     phone_number = "0";
 }
 
-int Employee::choise_operation() {
+int Program_runner ::choise_operation() {
     char choise = '9';
     while (choise != '0') {
         std::cout << "Enter what you want add(1. Name 2. Position 3. Home adress 4. Email "
@@ -54,7 +47,7 @@ int Employee::choise_operation() {
 }
 
 // name, birth date, position (title) in the company, home address, phone, email.
-void Employee::display_info() {
+void Program_runner ::display_info() {
     std::cout << "===================================" << std::endl;
     std::cout << "Name: " << name << std::endl;
     std::cout << "Birt date: " << bitrth_date << std::endl;
@@ -101,7 +94,7 @@ void Employee::add_phone_number() {
     std::cout << "You entered: " << phone_number << std::endl;
 }
 
-void Employee::writing_file() {
+void Program_runner::writing_file() {
     std::fstream myfile = std::fstream("employee_info.txt", std::ios_base::app);
 
     static int i = 1;
@@ -119,11 +112,11 @@ void Employee::writing_file() {
     myfile.close();
 }
 
-void Employee::display_info_from_file() {
-    std::string getcontent;
+void Program_runner::display_info_from_file() {
     std::fstream myfile("employee_info.txt");
     if (myfile.is_open()) {
         while (!myfile.eof()) {
+            std::string getcontent;
             getline(myfile, getcontent);
             std::cout << getcontent << std::endl;
         }
@@ -131,7 +124,7 @@ void Employee::display_info_from_file() {
     myfile.close();
 }
 
-void Employee::delete_all_from_file() {
+void Program_runner::delete_all_from_file() {
     std::ofstream myfile;
     myfile.open("employee_info.txt", std::ofstream::out | std::ofstream::trunc);
     myfile.close();
