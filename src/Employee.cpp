@@ -1,7 +1,7 @@
 #include "Employee.h"
-#include "fstream"
-#include "cstring"
-#include "iostream"
+#include <fstream>
+#include <cstring>
+#include <iostream>
 
 
 Employee::Employee() {
