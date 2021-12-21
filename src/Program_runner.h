@@ -6,9 +6,8 @@
 #include <memory>
 
 class Program_runner {
-private:
-    std::unique_ptr<Employee> employee = std::make_unique<Employee>();
 public:
+    Program_runner();
 
     int choise_operation();
 
@@ -19,6 +18,9 @@ public:
     void writing_file();
 
     void delete_all_from_file();
+
+private:
+    std::unique_ptr<Employee> employee = std::make_unique<Employee>();
 };
 
 
