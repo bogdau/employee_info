@@ -7,8 +7,6 @@ class Employee {
 public:
     Employee();
 
-
-protected:
     void add_name();
 
     void add_position();
@@ -20,7 +18,7 @@ protected:
     void add_bitrth_date();
 
     void add_phone_number();
-
+    
     std::string name = "Unknown";
     std::string position = "Unknown";
     std::string home_address = "Unknown";
@@ -30,17 +28,5 @@ protected:
     std::string phone_number = "0";
 };
 
-class Program_runner : public Employee {
-public:
-    int choise_operation();
 
-    void display_info();
-
-    void display_info_from_file();
-
-    void writing_file();
-
-    void delete_all_from_file();
-};
-
-#endif  // EMPLOYEE_INFO_SOURCE_H
+#endif 

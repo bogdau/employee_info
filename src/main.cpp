@@ -1,8 +1,8 @@
-#include "Employee.h"
+#include "Program_runner.h"
 #include <iostream>
 #include <memory>
 
-void cycle(Program_runner &employee) {
+void cycle(Program_runner &runner) {
     char operation{1};
 
     std::cout << "Enter operation(1. add new employee 2. display info 3. write info on file 4. "
@@ -12,19 +12,19 @@ void cycle(Program_runner &employee) {
     while (operation != '0') {
         switch (operation) {
             case '1':
-                employee.choise_operation();
+                runner.choise_operation();
                 break;
             case '2':
-                employee.display_info();
+                runner.display_info();
                 break;
             case '3':
-                employee.writing_file();
+                runner.writing_file();
                 break;
             case '4':
-                employee.display_info_from_file();
+                runner.display_info_from_file();
                 break;
             case '5':
-                employee.delete_all_from_file();
+                runner.delete_all_from_file();
                 break;
             default:
                 std::cout << "Wrong operation!" << std::endl;
@@ -38,6 +38,6 @@ void cycle(Program_runner &employee) {
 }
 
 int main() {
-    auto employeeInfo = std::make_unique<Program_runner>();
-    cycle(*employeeInfo);
+    auto runner = std::make_unique<Program_runner>();
+    cycle(*runner);
 }
