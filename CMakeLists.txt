@@ -8,4 +8,6 @@ add_executable(employee_info
         src/Employee.cpp
         src/Employee.h
         src/Program_runner.cpp
-        src/Program_runner.h)
+        src/Program_runner.h 
+        src/Employee_info_filler.cpp 
+        src/Employee_info_filler.h)

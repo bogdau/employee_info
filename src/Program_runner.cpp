@@ -2,41 +2,47 @@
 #include <fstream>
 
 Program_runner::Program_runner() {
-        char operation{1};
 
+}
+
+void Program_runner::start() {
+    char operation{1};
+
+    std::cout << "Enter operation(1. add new employee 2. display info 3. write info on file 4. "
+                 "Display info from file 5. delete all from file 0. for exit ): ";
+    std::cin >> operation;
+
+    while (operation != '0') {
+        switch (operation) {
+            case '1':
+                choise_operation();
+                break;
+            case '2':
+                display_info();
+                break;
+            case '3':
+                writing_file();
+                break;
+            case '4':
+                display_info_from_file();
+                break;
+            case '5':
+                delete_all_from_file();
+                break;
+            default:
+                std::cout << "Wrong operation!" << std::endl;
+                break;
+        }
         std::cout << "Enter operation(1. add new employee 2. display info 3. write info on file 4. "
                      "Display info from file 5. delete all from file 0. for exit ): ";
         std::cin >> operation;
-
-        while (operation != '0') {
-            switch (operation) {
-                case '1':
-                    choise_operation();
-                    break;
-                case '2':
-                    display_info();
-                    break;
-                case '3':
-                    writing_file();
-                    break;
-                case '4':
-                    display_info_from_file();
-                    break;
-                case '5':
-                    delete_all_from_file();
-                    break;
-                default:
-                    std::cout << "Wrong operation!" << std::endl;
-                    break;
-            }
-            std::cout << "Enter operation(1. add new employee 2. display info 3. write info on file 4. "
-                         "Display info from file 5. delete all from file 0. for exit ): ";
-            std::cin >> operation;
-        }
-        std::cout << "Good day! " << std::endl;
     }
+    std::cout << "Good day! " << std::endl;
+}
 
-int Program_runner::choise_operation() {
+void Program_runner::choise_operation() {
+    std::string name;
+
     char choise = '9';
     while (choise != '0') {
         std::cout << "Enter what you want add(1. Name 2. Position 3. Home adress 4. Email "
@@ -44,41 +50,43 @@ int Program_runner::choise_operation() {
         std::cin >> choise;
         switch (choise) {
             case '1':
-                employee->add_name();
+                std::cout << "Name: ";
+                std::cin >> name;
+                employee->set_name(name);
                 break;
             case '2':
-                employee->add_position();
+                employee_info_filler->set_position();
                 break;
             case '3':
-                employee->add_home_address();
+                employee_info_filler->set_home_address();
                 break;
             case '4':
-                employee->add_email();
+                employee_info_filler->set_email();
                 break;
             case '5':
-                employee->add_bitrth_date();
+                employee_info_filler->set_birth_date();
                 break;
             case '6':
-                employee->add_phone_number();
+                employee_info_filler->set_phone_number();
                 break;
             default:
                 std::cout << std::endl;
                 break;
         }
     }
-    return 0;
+
 }
 
 
 // name, birth date, position (title) in the company, home address, phone, email.
 void Program_runner::display_info() {
     std::cout << "===================================" << std::endl;
-    std::cout << "Name: " << employee->name << std::endl;
-    std::cout << "Birt date: " << employee->bitrth_date << std::endl;
-    std::cout << "Position: " << employee->position << std::endl;
-    std::cout << "Home adress: " << employee->home_address << std::endl;
-    std::cout << "Phone: " << employee->phone_number << std::endl;
-    std::cout << "Email: " << employee->email << std::endl;
+    std::cout << "Name: " << employee->get_name() << std::endl;
+    std::cout << "Birt date: " << employee->get_birth_date() << std::endl;
+    std::cout << "Position: " << employee->get_position() << std::endl;
+    std::cout << "Home adress: " << employee->get_home_address() << std::endl;
+    std::cout << "Phone: " << employee->get_phone_number() << std::endl;
+    std::cout << "Email: " << employee->get_email() << std::endl;
     std::cout << "===================================" << std::endl;
 }
 
@@ -90,12 +98,12 @@ void Program_runner::writing_file() {
 
     myfile << "==================================" << std::endl;
     myfile << "\tEmployee number " << i << std::endl;
-    myfile << "Name: " << employee->name << std::endl;
-    myfile << "Birt date: " << employee->bitrth_date << std::endl;
-    myfile << "Position: " << employee->position << std::endl;
-    myfile << "Home adress: " << employee->home_address << std::endl;
-    myfile << "Phone: " << employee->phone_number << std::endl;
-    myfile << "Email: " << employee->email << std::endl;
+    myfile << "Name: " << employee->get_name() << std::endl;
+    myfile << "Birt date: " << employee->get_birth_date() << std::endl;
+    myfile << "Position: " << employee->get_position() << std::endl;
+    myfile << "Home address: " << employee->get_home_address() << std::endl;
+    myfile << "Phone: " << employee->get_phone_number() << std::endl;
+    myfile << "Email: " << employee->get_email() << std::endl;
     myfile << "==================================" << std::endl;
     i += 1;
     myfile.close();

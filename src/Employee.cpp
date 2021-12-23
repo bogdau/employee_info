@@ -1,6 +1,4 @@
 #include "Employee.h"
-#include <fstream>
-#include <cstring>
 #include <iostream>
 
 
@@ -9,42 +7,62 @@ Employee::Employee() {
     position = "Unknown";
     home_address = "Unknown";
     email = "unknown@gmail.com";
-    bitrth_date = "00.00.0000";
+    birth_date = "00.00.0000";
     phone_number = "0";
 }
 
-void Employee::add_name() {
-    std::cout << "Enter name: ";
-    std::cin >> name;
-    std::cout << "You entered: " << name << std::endl;
+
+//Name 
+std::string Employee::get_name() {
+    return name;
 }
 
-void Employee::add_position() {
-    std::cout << "Enter position: ";
-    std::cin >> position;
-    std::cout << "You entered: " << position << std::endl;
+void Employee::set_name(const std::string &name) {
+    this->name = name;
 }
 
-void Employee::add_home_address() {
-    std::cout << "Enter home address: ";
-    std::cin >> home_address;
-    std::cout << "You entered: " << home_address << std::endl;
+//Position
+std::string Employee::get_position() {
+    return position;
 }
 
-void Employee::add_email() {
-    std::cout << "Enter email: ";
-    std::cin >> email;
-    std::cout << "You entered: " << email << std::endl;
+void Employee::set_position(const std::string &position) {
+    this->position = position;
 }
 
-void Employee::add_bitrth_date() {
-    std::cout << "Enter birth day: ";
-    std::cin >> bitrth_date;
-    std::cout << "You entered: " << bitrth_date << std::endl;
+//Home address
+std::string Employee::get_home_address() {
+    return home_address;
 }
 
-void Employee::add_phone_number() {
-    std::cout << "Enter phone number: ";
-    std::cin >> phone_number;
-    std::cout << "You entered: " << phone_number << std::endl;
+void Employee::set_home_address(const std::string &home_address) {
+    this->home_address = home_address;
+}
+
+//Email 
+std::string Employee::get_email() {
+    return email;
+}
+
+void Employee::set_email(const std::string &email) {
+    this->email = email;
+
+}
+
+//Birth date 
+std::string Employee::get_birth_date() {
+    return birth_date;
+}
+
+void Employee::set_birth_date(const std::string &birth_date) {
+    this->birth_date = birth_date;
+}
+
+//Phone number 
+std::string Employee::get_phone_number() {
+    return phone_number;
+}
+
+void Employee::set_phone_number(const std::string &phone_number) {
+    this->phone_number = phone_number;
 }
