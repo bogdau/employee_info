@@ -24,8 +24,6 @@ private:
     std::string phone_number;
 
     std::unique_ptr<Employee> employee = std::make_unique<Employee>();
-
 };
 
-
-#endif 
+#endif

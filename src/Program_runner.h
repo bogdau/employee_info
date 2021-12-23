@@ -17,11 +17,10 @@ public:
     void writing_file();
     void delete_all_from_file();
 
-
 private:
     std::unique_ptr<Employee> employee = std::make_unique<Employee>();
-    std::unique_ptr<Employee_info_filler> employee_info_filler = std::make_unique<Employee_info_filler>();
+    std::unique_ptr<Employee_info_filler> employee_info_filler =
+        std::make_unique<Employee_info_filler>();
 };
-
 
 #endif

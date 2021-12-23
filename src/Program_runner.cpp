@@ -1,11 +1,12 @@
 #include "Program_runner.h"
 #include <fstream>
 
-Program_runner::Program_runner() {
-
+Program_runner::Program_runner()
+{
 }
 
-void Program_runner::start() {
+void Program_runner::start()
+{
     char operation{1};
 
     std::cout << "Enter operation(1. add new employee 2. display info 3. write info on file 4. "
@@ -14,24 +15,24 @@ void Program_runner::start() {
 
     while (operation != '0') {
         switch (operation) {
-            case '1':
-                choise_operation();
-                break;
-            case '2':
-                display_info();
-                break;
-            case '3':
-                writing_file();
-                break;
-            case '4':
-                display_info_from_file();
-                break;
-            case '5':
-                delete_all_from_file();
-                break;
-            default:
-                std::cout << "Wrong operation!" << std::endl;
-                break;
+        case '1':
+            choise_operation();
+            break;
+        case '2':
+            display_info();
+            break;
+        case '3':
+            writing_file();
+            break;
+        case '4':
+            display_info_from_file();
+            break;
+        case '5':
+            delete_all_from_file();
+            break;
+        default:
+            std::cout << "Wrong operation!" << std::endl;
+            break;
         }
         std::cout << "Enter operation(1. add new employee 2. display info 3. write info on file 4. "
                      "Display info from file 5. delete all from file 0. for exit ): ";
@@ -40,7 +41,8 @@ void Program_runner::start() {
     std::cout << "Good day! " << std::endl;
 }
 
-void Program_runner::choise_operation() {
+void Program_runner::choise_operation()
+{
     std::string name;
 
     char choise = '9';
@@ -49,37 +51,36 @@ void Program_runner::choise_operation() {
                      "5.Birthday 6. Phone number 0. Exit)";
         std::cin >> choise;
         switch (choise) {
-            case '1':
-                std::cout << "Name: ";
-                std::cin >> name;
-                employee->set_name(name);
-                break;
-            case '2':
-                employee_info_filler->set_position();
-                break;
-            case '3':
-                employee_info_filler->set_home_address();
-                break;
-            case '4':
-                employee_info_filler->set_email();
-                break;
-            case '5':
-                employee_info_filler->set_birth_date();
-                break;
-            case '6':
-                employee_info_filler->set_phone_number();
-                break;
-            default:
-                std::cout << std::endl;
-                break;
+        case '1':
+            std::cout << "Name: ";
+            std::cin >> name;
+            employee->set_name(name);
+            break;
+        case '2':
+            employee_info_filler->set_position();
+            break;
+        case '3':
+            employee_info_filler->set_home_address();
+            break;
+        case '4':
+            employee_info_filler->set_email();
+            break;
+        case '5':
+            employee_info_filler->set_birth_date();
+            break;
+        case '6':
+            employee_info_filler->set_phone_number();
+            break;
+        default:
+            std::cout << std::endl;
+            break;
         }
     }
-
 }
 
-
 // name, birth date, position (title) in the company, home address, phone, email.
-void Program_runner::display_info() {
+void Program_runner::display_info()
+{
     std::cout << "===================================" << std::endl;
     std::cout << "Name: " << employee->get_name() << std::endl;
     std::cout << "Birt date: " << employee->get_birth_date() << std::endl;
@@ -90,8 +91,8 @@ void Program_runner::display_info() {
     std::cout << "===================================" << std::endl;
 }
 
-
-void Program_runner::writing_file() {
+void Program_runner::writing_file()
+{
     std::fstream myfile = std::fstream("employee_info.txt", std::ios_base::app);
 
     static int i = 1;
@@ -109,7 +110,8 @@ void Program_runner::writing_file() {
     myfile.close();
 }
 
-void Program_runner::display_info_from_file() {
+void Program_runner::display_info_from_file()
+{
     std::fstream myfile("employee_info.txt");
     if (myfile.is_open()) {
         while (!myfile.eof()) {
@@ -121,7 +123,8 @@ void Program_runner::display_info_from_file() {
     myfile.close();
 }
 
-void Program_runner::delete_all_from_file() {
+void Program_runner::delete_all_from_file()
+{
     std::ofstream myfile;
     myfile.open("employee_info.txt", std::ofstream::out | std::ofstream::trunc);
     myfile.close();
