@@ -8,22 +8,22 @@ class Employee_info_filler {
 public:
     Employee_info_filler();
 
-    void set_name();
-    void set_position();
-    void set_home_address();
-    void set_email();
-    void set_birth_date();
-    void set_phone_number();
-
+    void fill_info(Employee &employee);
 private:
+    void set_name(Employee &employee);
+    void set_position(Employee &employee);
+    void set_home_address(Employee &employee);
+    void set_email(Employee &employee);
+    void set_birth_date(Employee &employee);
+    void set_phone_number(Employee &employee);
+
     std::string name;
     std::string position;
     std::string home_address;
     std::string email;
     std::string birth_date;
     std::string phone_number;
-
-    std::unique_ptr<Employee> employee = std::make_unique<Employee>();
 };
+
 
 #endif
