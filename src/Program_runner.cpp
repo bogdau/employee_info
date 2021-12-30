@@ -46,8 +46,6 @@ void Program_runner::create_employee()
     employee_info_filler->fill_info(*employee);
 }
 
-
-// name, birth date, position (title) in the company, home address, phone, email.
 void Program_runner::display_info()
 {
     std::cout << "===================================" << std::endl;
@@ -59,7 +57,6 @@ void Program_runner::display_info()
     std::cout << "Email: " << employee->get_email() << std::endl;
     std::cout << "===================================" << std::endl;
 }
-
 
 void Program_runner::writing_file()
 {
